@@ -13,6 +13,7 @@
 \alias{orange_filters}
 \alias{red_nir_filters}
 \alias{heat_filters}
+\alias{uvir_cut_filters}
 \title{Spectral data for filters of different 'colors'}
 \format{A vector of character strings.}
 \usage{
@@ -35,6 +36,8 @@ orange_filters
 red_nir_filters
 
 heat_filters
+
+uvir_cut_filters
 }
 \description{
 Names of datasets containing the wavelengths and tabulated values for

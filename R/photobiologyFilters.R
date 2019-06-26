@@ -36,6 +36,11 @@
 #'   calculations described at the
 #'   [r4photobiology](http://www.r4photobiology.info) web site.
 #'
+#' @references
+#'
+#' Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin, 2015:1,
+#' 21-29. \url{https://doi.org/10.19232/uv4pb.2015.1.14}.
+#'
 #' @section Warning!: Except for those from Schott and MIDOPT, none of the
 #'   spectral data included in this package are "official" specifications. In
 #'   all cases data are only for information, as even suppliers refer to the
@@ -64,22 +69,22 @@
 #' length(filters.mspct)
 #'
 #' # SCHOTT filters example
-#' schott
-#' filters.mspct$OG530
-#' filters.mspct[["OG530"]]
-#' getWhatMeasured(filters.mspct$OG530)
+#' schott_filters
+#' filters.mspct$Schott_OG530
+#' filters.mspct[["Schott_OG530"]]
+#' getWhatMeasured(filters.mspct$Schott_OG530)
 #'
 #' # combining name (index) vectors
 #' # blue glass filters
-#' intersect(optical_glass, blue_filters)
+#' intersect(optical_glass_filters, blue_filters)
 #' # green plastic films
-#' intersect(plastic_film, green_filters)
+#' intersect(plastic_films, green_filters)
 #'
 #' # A Plexiglas sheet
-#' getWhatMeasured(filters.mspct$Sky_Blue_5C01_GT)
-#' plot(filters.mspct$Sky_Blue_5C01_GT)
-#' transmittance(filters.mspct$Sky_Blue_5C01_GT, Orange())
-#' transmittance(filters.mspct$Sky_Blue_5C01_GT, NIR())
+#' getWhatMeasured(filters.mspct$Evonik_Sky_Blue_5C01_GT)
+#' plot(filters.mspct$Evonik_Sky_Blue_5C01_GT)
+#' transmittance(filters.mspct$Evonik_Sky_Blue_5C01_GT, Orange())
+#' transmittance(filters.mspct$Evonik_Sky_Blue_5C01_GT, NIR())
 #'
 "_PACKAGE"
 

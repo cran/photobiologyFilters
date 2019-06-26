@@ -24,8 +24,9 @@ The \code{"filter_mspct"} object contains \code{"filter_spct"}
 Please see the help corresponding to each supplier for details.
 }
 \examples{
+filters.mspct$Schott_UG11
+filters.mspct[[1]]
 names(filters.mspct)
-filters.mspct$UG11
 
 }
 \keyword{datasets}

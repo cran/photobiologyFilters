@@ -21,7 +21,7 @@ For each of the 26 spectra in the collection the variables are as follows:
 }
 }
 \note{
-Data from \url{files.cie.co.at/206.xls}, downloaded 2017-06-25.
+Data from file \url{http://files.cie.co.at/206.xls}, downloaded 2017-06-25.
 Abbreviated names from original .xls file used as member names. Full glass
 names, thickness and manufacturers names, retained and stored as metadata
 in attribute "what.measured".

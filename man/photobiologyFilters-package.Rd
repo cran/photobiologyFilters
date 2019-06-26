@@ -6,9 +6,11 @@
 \alias{photobiologyFilters-package}
 \title{photobiologyFilters: Spectral Transmittance Data for Filters}
 \description{
-A data only package with spectral 'transmittance' data for
-frequently used filters and similar materials. Plastic sheets and films;
-optical glass and ordinary glass and some labware.
+Spectral 'transmittance' data for frequently used filters and 
+    similar materials. Plastic sheets and films; photography filters; 
+    theatrical gels; machine-vision filters; various types of window glass;
+    optical glass and some laboratory plastics and glassware. Part of the
+    'r4photobiology' suite, Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.
 }
 \details{
 This package contains transmission spectra for different types of
@@ -78,23 +80,27 @@ library(photobiologyWavebands)
 length(filters.mspct)
 
 # SCHOTT filters example
-schott
-filters.mspct$OG530
-filters.mspct[["OG530"]]
-getWhatMeasured(filters.mspct$OG530)
+schott_filters
+filters.mspct$Schott_OG530
+filters.mspct[["Schott_OG530"]]
+getWhatMeasured(filters.mspct$Schott_OG530)
 
 # combining name (index) vectors
 # blue glass filters
-intersect(optical_glass, blue_filters)
+intersect(optical_glass_filters, blue_filters)
 # green plastic films
-intersect(plastic_film, green_filters)
+intersect(plastic_films, green_filters)
 
 # A Plexiglas sheet
-getWhatMeasured(filters.mspct$Sky_Blue_5C01_GT)
-plot(filters.mspct$Sky_Blue_5C01_GT)
-transmittance(filters.mspct$Sky_Blue_5C01_GT, Orange())
-transmittance(filters.mspct$Sky_Blue_5C01_GT, NIR())
+getWhatMeasured(filters.mspct$Evonik_Sky_Blue_5C01_GT)
+plot(filters.mspct$Evonik_Sky_Blue_5C01_GT)
+transmittance(filters.mspct$Evonik_Sky_Blue_5C01_GT, Orange())
+transmittance(filters.mspct$Evonik_Sky_Blue_5C01_GT, NIR())
 
+}
+\references{
+Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin, 2015:1,
+21-29. \url{https://doi.org/10.19232/uv4pb.2015.1.14}.
 }
 \seealso{
 Useful links:
@@ -112,6 +118,7 @@ Other contributors:
   \item Titta K. Kotilainen \email{titta.kotilainen@helsinki.fi} (Contributed data) [contributor]
   \item Tania de la Rosa \email{tania.delarosa@niras.fi} (Contributed data) [contributor]
   \item Riitta Tegelberg \email{riitta.tegelberg@uef.fi} (Contributed data) [contributor]
+  \item Andreas Albert (Contributed data) [contributor]
   \item SCHOTT AG (Contributed data) [contributor]
   \item Midwest Optical Systems, Inc. (MidOpt) (Contributed data) [contributor]
 }

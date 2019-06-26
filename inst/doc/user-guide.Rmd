@@ -29,8 +29,8 @@ documentation for package 'photobiology'.
 library(photobiology)
 library(photobiologyWavebands)
 library(photobiologyFilters)
-library(ggplot2)
 library(ggspectra)
+theme_set(theme_bw())
 ```
 
 In this very brief User Guide we describe how to access individual spectra or
@@ -83,18 +83,18 @@ one or both of its surfaces.
 All the spectral data in this package are stored in a single R object, a
 collection of spectra of class `filter_spct`. Individual or subsets of spectra
 can be retrieved by _name_. The package includes also several `character`
-vectors of _names_, each one containing names for LEDs of a given _color_, a
-given _type_ or from a given _manufacturer_. These are listed in the help index
-for the package. The _names_ used are in most cases the codes used by the
-manufacturers for the given type. Any dashes in these codes have been replaced
-by underscores.
+vectors of _names_, each one containing names for filters of a given _color_, a
+given _type_ or from a given _manufacturer_. The names of all these vectors
+are available in vector `all_filter_accessors. The _names_ used are in most 
+cases the codes used by the manufacturers for the given type. Any dashes in 
+these codes have been replaced by underscores.
 
 ```{r}
-# band_pass
+band_pass_filters
 ```
 
 ```{r}
-schott
+schott_filters
 ```
 
 ## Accessing individual spectra
@@ -107,18 +107,18 @@ and also available through the "Data Catalogue" vignette. They can also be
 listed with method `names()`.
 
 ```{r}
-names(filters.mspct)
+head(names(filters.mspct), 6)
 ```
 
 We can use a character string as index to extract an individual `filter_spct`
 object.
 
 ```{r}
-filters.mspct$UG11
+filters.mspct$Schott_UG11
 ```
 
 ```{r}
-filters.mspct[["UG11"]]
+filters.mspct[["Schott_UG11"]]
 ```
 
 Be aware that according to R's rules, using single square brackets will return
@@ -126,7 +126,7 @@ a `filter_mspct` object possibly of length one. This statement is not equivalent
 to the one in the chunk immediately above.
 
 ```{r}
-filters.mspct["UG11"]
+filters.mspct["Schott_UG11"]
 ```
 
 Of course, with this syntax it is possible to use a vector of member names.
@@ -134,7 +134,7 @@ Of course, with this syntax it is possible to use a vector of member names.
 ## Accessing subsets of spectra
 
 We can subset the `filter_mspct` object by indexing with vectors of character
-strings. The package provides some predefined ones, and users can easily
+strings. The package provides several predefined ones, and users can easily
 define their own, either as constants or through computation. Here we use
 a vector defined by the package.
 
@@ -142,35 +142,51 @@ a vector defined by the package.
 filters.mspct[petri_dishes]
 ```
 
-And below we use a computed one. In this case we extract the member spectra
+The vector `all_filter_accessors` contains the names of the different vectors of
+names of members of `filters.mspct`.
+
+```{r}
+all_filter_accessors
+```
+
+In addition to the predefined vectors it is possible to compute numeric indexing vectors
+using pattern matching with `grep()`. In this example we extract the member spectra
 with names containing the string "UG".
 
 ```{r}
 filters.mspct[grep("UG", names(filters.mspct))]
 ```
 
+To generate the subset of names matching a pattern, we can also use `grep()`.
+
+```{r}
+grep("UG", names(filters.mspct), value = TRUE)
+```
+
 ## Querying metadata
 
-If package 'photobiology' is loaded then the specialised `print()` method will be
-used and a summary of the metadata will be included in the header of the
-printout.
+The spectra are saved in objects of class `"filter_spct"`, defined in package
+'photobiology'. Specializations of several methods including `print()` and
+`summary()` include a summary of the metadata in the header of the printout.
 
 ```{r}
-filters.mspct$UG11
+filters.mspct$Schott_UG11
+```
+
+Metadata can also be queried with other methods. Please, see the documentation
+for package 'photobiology' for the details.
+
+```{r}
+getWhatMeasured(filters.mspct$Schott_UG11)
+getHowMeasured(filters.mspct$Schott_UG11)
 ```
 
 ```{r}
-getWhatMeasured(filters.mspct$UG11)
-getWhenMeasured(filters.mspct$UG11)
+is_normalized(filters.mspct$Schoot_UG11)
 ```
 
 ```{r}
-is_normalized(filters.mspct$UG11)
-```
-
-```{r}
-comment(filters.mspct$UG11)
-names(filters.mspct$UG11)
+cat(comment(filters.mspct$Schott_UG11), "\n")
 ```
 
 Of the different metadata items, the type of data is of great importance.
@@ -181,7 +197,7 @@ _total_ transmittance while 2) is referred as _internal_ transmittance.
 Attribute `Tfr.type" is used to store this information.
 
 ```{r}
-getTfrType(filters.mspct$UG11)
+getTfrType(filters.mspct$Schott_UG11)
 ```
 
 ## Plotting
@@ -191,34 +207,44 @@ data frames, using base R graphics, package 'lattice' or 'ggplot2'. However, ano
 package in our suite, 'ggspectra', built as an extension to 'ggplot2' makes 
 plotting spectra extremely easy.
 
-`plot()` methods use the metadata in the objects to set labels and decorations,
+`autoplot()` methods use the metadata in the objects to set labels and decorations,
 as well as automatically setting the mapping of the _x_ and _y_ aesthetics.
 
 ```{r}
-plot(filters.mspct$UG11)
+autoplot(filters.mspct$MIDOPT_LP500)
 ```
 
 ```{r}
-plot(filters.mspct$TB550_660_850, 
-     annotations = c("+", "title:what"), 
-     span = 11)
+autoplot(filters.mspct$MIDOPT_TB550_660_850, 
+         annotations = c("+", "title:none:none:what"), 
+         span = 11)
+```
+
+To graphically compare filters, we can pass a collection of spectral objects,
+such as subset of `filters.mspct`.
+
+```{r}
+autoplot(filters.mspct[c("Schott_UG1", "Schott_UG11")], 
+         range = c(200, 800),
+         annotations = c("+", "boundaries"), 
+         span = 11)
 ```
 
 Package 'ggspectra' also defines specializations of method `ggplot()` for 
 spectra.
 
 ```{r}
-ggplot(filters.mspct$UG11) +
+ggplot(filters.mspct$Firecrest_UVIR_Cut) +
   geom_line()
 ```
 
 ## Calculating summaries
 
 ```{r}
-transmittance(filters.mspct$UG11, UVA())
+transmittance(filters.mspct$Firecrest_UVIR_Cut, UVA())
 ```
 ```{r}
-absorbance(filters.mspct$UG11, list(UVA(), Red()))
+absorbance(filters.mspct$Firecrest_UVIR_Cut, list(UVA(), NIR()))
 ```
 
 ```{r}
@@ -233,23 +259,24 @@ As `filter_mspct` is a class derived from `list`, and `filter_spct` is derived f
 data can be used very easily with any R function.
 
 ```{r}
-head(as.data.frame(filters.mspct$UG11))
+head(as.data.frame(filters.mspct$Schott_UG11))
 ```
 
 Of course `attach` and `with` also work as expected.
 ```{r}
 attach(filters.mspct)
-transmittance(UG11, UVA())
-detach(filters.mspct)
-```
-```{r}
-attach(filters.mspct)
-with(UG11, range(w.length))
+transmittance(Schott_UG11, UVA())
 detach(filters.mspct)
 ```
 
 ```{r}
-with(filters.mspct, transmittance(UG11, UVA()))
+attach(filters.mspct)
+with(Schott_UG11, range(w.length))
+detach(filters.mspct)
+```
+
+```{r}
+with(filters.mspct, transmittance(Schott_UG11, UVA()))
 ```
 
 
