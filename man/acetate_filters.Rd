@@ -16,7 +16,31 @@
 \alias{plastic_sheet_filters}
 \alias{plastic_sheets}
 \title{Spectral data for filters made from different materials}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+
+An object of class \code{character} of length 9.
+
+An object of class \code{character} of length 2.
+
+An object of class \code{character} of length 9.
+
+An object of class \code{character} of length 3.
+
+An object of class \code{character} of length 2.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 68.
+
+An object of class \code{character} of length 31.
+
+An object of class \code{character} of length 31.
+
+An object of class \code{character} of length 14.
+
+An object of class \code{character} of length 14.
+}
 \usage{
 acetate_filters
 

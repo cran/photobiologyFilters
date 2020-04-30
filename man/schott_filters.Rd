@@ -4,7 +4,9 @@
 \name{schott_filters}
 \alias{schott_filters}
 \title{Internal transmittance for Schott filters}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 schott_filters
 }
@@ -23,7 +25,7 @@ The variables are as follows:
 \note{
 Data supplied by the manufacturer for inclussion in this package.
 Version	1 st June 2015. Reproduced with permission.
-\url{http://www.schott.com/advanced_optics}
+\url{https://www.schott.com/advanced_optics}
 }
 \section{DISCLAIMER from Schott}{
 

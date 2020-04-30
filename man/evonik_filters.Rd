@@ -4,7 +4,9 @@
 \name{evonik_filters}
 \alias{evonik_filters}
 \title{Total transmittance for PMMA sheets (Plexiglas) by Evonik}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 evonik_filters
 }
@@ -22,7 +24,7 @@ The variables are as follows:
 }
 
 Sample chips bought from the manufacturers website on 24.04.2014
-\url{http://www.plexiglas-shop.com/}
+\url{https://www.plexiglas-shop.com/}
 }
 \note{
 Data measured with an Agilent~8453 spectrophotometer (based on diode array).

@@ -4,7 +4,9 @@
 \name{glass_windows}
 \alias{glass_windows}
 \title{Spectral transmittance for glass windows}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 glass_windows
 }

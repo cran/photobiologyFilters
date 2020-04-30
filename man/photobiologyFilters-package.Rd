@@ -50,7 +50,7 @@ Transmittance data are included for:
 \note{
 This package is part of a suite of R packages for photobiological
   calculations described at the
-  [r4photobiology](http://www.r4photobiology.info) web site.
+  [r4photobiology](https://www.r4photobiology.info) web site.
 }
 \section{Warning!}{
  Except for those from Schott and MIDOPT, none of the
@@ -105,13 +105,13 @@ Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin, 2015:1,
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://www.r4photobiology.info/}
+  \item \url{https://docs.r4photobiology.info/photobiologyFilters/}
   \item Report bugs at \url{https://bitbucket.org/aphalo/photobiologyfilters}
 }
 
 }
 \author{
-\strong{Maintainer}: Pedro J. Aphalo \email{pedro.aphalo@helsinki.fi} (https://orcid.org/0000-0003-3385-972X)
+\strong{Maintainer}: Pedro J. Aphalo \email{pedro.aphalo@helsinki.fi} (\href{https://orcid.org/0000-0003-3385-972X}{ORCID})
 
 Other contributors:
 \itemize{

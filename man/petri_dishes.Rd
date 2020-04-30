@@ -4,7 +4,9 @@
 \name{petri_dishes}
 \alias{petri_dishes}
 \title{Total transmittance for  Petri dishes}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 petri_dishes
 }

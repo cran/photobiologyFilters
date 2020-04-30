@@ -4,7 +4,9 @@
 \name{uqg_filters}
 \alias{uqg_filters}
 \title{Total transmittance for UQG filters}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 uqg_filters
 }

@@ -4,7 +4,9 @@
 \name{courtaulds_filters}
 \alias{courtaulds_filters}
 \title{Filter spectra data for cellulose di-acetate film}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 courtaulds_filters
 }

@@ -4,8 +4,10 @@
 \name{filters.mspct}
 \alias{filters.mspct}
 \title{Spectral irradiance for diverse optical filters}
-\format{A \code{"filter_mspct"} object containing several
-  \code{"filter_spct"}.}
+\format{
+A \code{"filter_mspct"} object containing several
+  \code{"filter_spct"}.
+}
 \usage{
 filters.mspct
 }

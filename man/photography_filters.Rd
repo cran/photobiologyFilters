@@ -17,8 +17,41 @@
 \alias{kenko_filters}
 \alias{rocolax_filters}
 \alias{kolarivision_filters}
+\alias{fotga_filters}
 \title{Total transmittance for photography filters}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+
+An object of class \code{character} of length 11.
+
+An object of class \code{character} of length 7.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 10.
+
+An object of class \code{character} of length 5.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 3.
+
+An object of class \code{character} of length 3.
+
+An object of class \code{character} of length 7.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 3.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+}
 \usage{
 photography_filters
 
@@ -49,6 +82,8 @@ kenko_filters
 rocolax_filters
 
 kolarivision_filters
+
+fotga_filters
 }
 \description{
 Total transmittance for filters intended for use on camera lenses from
@@ -63,17 +98,28 @@ The variables are as follows:
   \item w.length (nm)
   \item Tfr (fraction)
 }
-
-\url{https://www.formatt-hitech.com/}, \url{https://www.haidaphoto.com/en/},
-\url{http://www.heliopan.de/}, \url{https://hoyafilter.com/},
-\url{https://www.zomei.com/}, \url{https://www.baader-planetarium.com/en/},
-\url{http://www.uvroptics.com/}.
 }
 \note{
 Data measured with an Agilent 8453 spectrophotometer (based on diode array).
 
 Idependent measurement of a single sample, not a specification.
 }
+\section{Supplier's web sites}{
+
+\url{https://www.baader-planetarium.com/en/},
+\url{https://www.formatt-hitech.com/},
+\url{https://www.fotga.com/},
+\url{https://www.haidaphoto.com/en/},
+\url{http://www.heliopan.de/},
+\url{https://hoyafilter.com/},
+\url{https://kenkoglobal.com/},
+\url{https://kolarivision.com/},
+\url{https://schneiderkreuznach.com/en/photo-optics},
+\url{https://tiffen.com/},
+\url{https://www.uvroptics.com/},
+\url{https://www.zomei.com/}.
+}
+
 \examples{
 photography_filters
 

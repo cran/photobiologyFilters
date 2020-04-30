@@ -4,7 +4,9 @@
 \name{mcdermit_filters}
 \alias{mcdermit_filters}
 \title{Filter spectra data for McDermit Autostat CT5 "polyester" filter}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 mcdermit_filters
 }
@@ -19,7 +21,7 @@ The variables are as follows:
   \item w.length (nm)
   \item Tfr (fraction)
 }
-\url{http://www.macdermidautotype.com/}
+\url{http://autotype.macdermid.com/}
 }
 \note{
 Instrument used: Shimadzu UV-2501 PC (Shimadzu Suzhou Instruments Manufacturing

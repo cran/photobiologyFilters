@@ -8,7 +8,13 @@
 \alias{long_pass_filters}
 \alias{short_pass_filters}
 \title{Spectral data for filters of different types}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+
+An object of class \code{character} of length 56.
+
+An object of class \code{character} of length 17.
+}
 \usage{
 band_pass_filters
 

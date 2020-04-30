@@ -4,7 +4,9 @@
 \name{all_filter_accessors}
 \alias{all_filter_accessors}
 \title{Names of different accessors}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 all_filter_accessors
 }

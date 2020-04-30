@@ -4,7 +4,9 @@
 \name{foiltek_filters}
 \alias{foiltek_filters}
 \title{Spectral Transmittance for Plastic Sheets Supplied by Foiltek}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 foiltek_filters
 }
@@ -26,7 +28,7 @@ The variables are as follows:
 }
 
 Sample chips supplied free of charge by Foiltek on 02.07.2014
-\url{http://www.foiltek.fi/}
+\url{https://foiltek.fi/}
 }
 \note{
 Data measured with an Agilent 8453 spectrophotometer (based on diode

@@ -8,7 +8,17 @@
 \alias{rosco_filters}
 \alias{rosco_gels}
 \title{Filter spectra data for theatrical filter}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+
+An object of class \code{character} of length 7.
+
+An object of class \code{character} of length 7.
+
+An object of class \code{character} of length 8.
+
+An object of class \code{character} of length 8.
+}
 \usage{
 theatrical_gels
 
@@ -45,7 +55,7 @@ theatrical_gels
 
 }
 \references{
-\url{http://www.leefilters.com/lighting/colour-details.html},
-\url{http://www.rosco.com/filters/index.cfm}
+\url{https://www.leefilters.com/lighting/colour-details.html},
+\url{https://emea.rosco.com/en/products/family/filters-and-diffusions}
 }
 \keyword{datasets}

@@ -4,7 +4,9 @@
 \name{etola_filters}
 \alias{etola_filters}
 \title{PE films supplied by Etola Oy}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 etola_filters
 }

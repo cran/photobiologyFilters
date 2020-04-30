@@ -4,7 +4,9 @@
 \name{bpi_visqueen_filters}
 \alias{bpi_visqueen_filters}
 \title{Filter spectra data for commercial grenhouse films from BPI Visqueen}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 bpi_visqueen_filters
 }
@@ -21,7 +23,7 @@ The variables are as follows:
   \item Tfr (fraction)
 }
 
-\url{http://www.rpc-bpi.com/agriculture/}
+\url{https://www.rpc-bpi.com/agriculture/}
 
 Instrument used: Shimadzu UV-2501 PC (Shimadzu Suzhou Instruments Manufacturing
 Co. Ltd, China) equiped with an integrating sphere.

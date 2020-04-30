@@ -4,7 +4,9 @@
 \name{xl_horticulture_filters}
 \alias{xl_horticulture_filters}
 \title{Filter spectra data for commercial grenhouse films from XL Horticulture}
-\format{A vector of character strings.}
+\format{
+A vector of character strings.
+}
 \usage{
 xl_horticulture_filters
 }
@@ -21,7 +23,7 @@ The variables are as follows:
   \item Tfr (fraction)
 }
 
-\url{http://www.xlhorticulture.co.uk/}
+\url{https://www.xlhorticulture.co.uk/}
 
 Instrument used: Shimadzu UV-2501 PC (Shimadzu Suzhou Instruments Manufacturing
 Co. Ltd, China) equiped with an integrating sphere.
