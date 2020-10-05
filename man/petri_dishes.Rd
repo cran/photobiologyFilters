@@ -3,7 +3,7 @@
 \docType{data}
 \name{petri_dishes}
 \alias{petri_dishes}
-\title{Total transmittance for  Petri dishes}
+\title{Total transmittance for Petri dishes}
 \format{
 A vector of character strings.
 }
@@ -21,11 +21,10 @@ The variables are as follows:
   \item w.length (nm)
   \item Tfr (fraction)
 }
-
-\url{https://www.thermofisher.com/}
 }
 \note{
 Data measured with an Agilent 8453 spectrophotometer (based on diode array).
+Supplier of the Petri dishes: Thermo Fisher Scientific.
 
 Idependent measurement of a single sample, not a specification.
 }

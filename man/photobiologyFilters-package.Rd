@@ -4,28 +4,43 @@
 \name{photobiologyFilters-package}
 \alias{photobiologyFilters}
 \alias{photobiologyFilters-package}
-\title{photobiologyFilters: Spectral Transmittance Data for Filters}
+\title{photobiologyFilters: Spectral Transmittance and Spectral Reflectance Data}
 \description{
 Spectral 'transmittance' data for frequently used filters and 
     similar materials. Plastic sheets and films; photography filters; 
     theatrical gels; machine-vision filters; various types of window glass;
-    optical glass and some laboratory plastics and glassware. Part of the
+    optical glass and some laboratory plastics and glassware. Spectral 
+    reflectance data for frequently encountered materials. Part of the
     'r4photobiology' suite, Aphalo P. J. (2015) <doi:10.19232/uv4pb.2015.1.14>.
 }
 \details{
 This package contains transmission spectra for different types of
 optical filters and filter-like objects. These spectral data are NOT
 normalized. In most cases they have been obtained from sheets of the standard
-thickness supplied by sellers. Beware that thickness has a strong effect on
+thickness supplied by sellers. Metadata is stored together with the spectral
+data, when available, it includes thickness, an approximate estimate of
+Rfr and whether attenuation by the filter is based on reflection, absorption
+or both. Beware that when attenuation is by absorption in the body of the
+filter, thickness has a strong effect on
 the wavelengths at which Tfr = 0.5 is reached for a given material. Be also
 aware that some of the data are for total transmittance and some for internal
 transmittance. Depending on the type of filter, spectral transmittance
 depends more or less strongly on the angle of incidence of radiation. All
-measurements included have been done with a angle of incidence that debiates
+measurements included have been done with a angle of incidence that deviates
 at most by a 10 degrees from zero (light beam perpendicular to the surface of
 the filter). Additional data is provided in the documentation for different
 objects, and metadata is also stored as attributes in the individual spectral
-objects.
+objects. When metadata are available, estimates of spectral transmittance for
+different thicknesses can be usually computed. The same is true for the
+conversion between total and internal transmittance.
+
+In addition to transmittance for semitransparent materials, the package also
+contains data on the refractive index as a function of wavelength, for
+several different materials. These data allow the estimation of spectral
+reflectance for these materials.
+
+Spectral reflectance data is included for some common metals and for
+natural and man-made surfaces relevant to remote sensing.
 
 Transmittance data are included for:
 \itemize{
@@ -39,12 +54,13 @@ Transmittance data are included for:
   \item Other types of plastic sheets supplied by Foiltek Oy and Etola Oy,
   measured at our lab.
   \item Plastic films from McDermit and Courtaulds,
-  measured at our lab..
+  measured at our lab.
   \item Several types of theatrical 'gels' from Lee, Rosco, and Formmatt.
   Some measured at our lab and others data digitized from manufacturers'
   catalogues.
   \item Films used as greenhouse cladding from  BPI Agri/Visqueen,
   XL-horticulture and generic, measured at our lab.
+  \item Various filters used in UV, VIS and IR imaging and photography.
 }
 }
 \note{
@@ -84,6 +100,8 @@ schott_filters
 filters.mspct$Schott_OG530
 filters.mspct[["Schott_OG530"]]
 getWhatMeasured(filters.mspct$Schott_OG530)
+filter_properties(filters.mspct$Schott_OG530)
+cat(comment(filters.mspct$Schott_OG530))
 
 # combining name (index) vectors
 # blue glass filters
@@ -93,9 +111,15 @@ intersect(plastic_films, green_filters)
 
 # A Plexiglas sheet
 getWhatMeasured(filters.mspct$Evonik_Sky_Blue_5C01_GT)
-plot(filters.mspct$Evonik_Sky_Blue_5C01_GT)
+autoplot(filters.mspct$Evonik_Sky_Blue_5C01_GT)
 transmittance(filters.mspct$Evonik_Sky_Blue_5C01_GT, Orange())
 transmittance(filters.mspct$Evonik_Sky_Blue_5C01_GT, NIR())
+
+# Gold
+autoplot(metals.mspct$gold, range = NIR(), w.band = NULL)
+
+# Asphalt
+autoplot(materials.mspct$construction.asphalt, range = NIR(), w.band = NULL)
 
 }
 \references{
