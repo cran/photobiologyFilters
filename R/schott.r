@@ -1,16 +1,9 @@
-#' Internal transmittance for Schott filters
+#' Indexing of Schott filters
 #'
-#' Internal transmittance for Schott optical glass filters.
+#' Vectors of names of member objects containing spectral dara for Schott optical glass filters.
 #' Data from manufacturer-provided excel filter tool.
 #'
-#' The variables are as follows:
-#'
-#' \itemize{
-#'   \item w.length (nm)
-#'   \item Tfr (fraction)
-#' }
-#'
-#' @note Data supplied by the manufacturer for inclussion in this package.
+#' @note Data supplied by the manufacturer for inclusion in this package.
 #' Version	1 st June 2015. Reproduced with permission.
 #' \url{https://www.schott.com/advanced_optics}
 #'
@@ -42,7 +35,11 @@
 #' @keywords datasets
 #' @format A vector of character strings.
 #'
+#' @seealso \code{\link{filters.mspct}}
+#'
 #' @examples
 #' schott_filters
+#' summary(filters.mspct[schott_filters])
+#' summary(filters.mspct[schott_filters[grep("UG", schott_filters)]])
 #'
 "schott_filters"

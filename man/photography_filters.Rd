@@ -18,35 +18,50 @@
 \alias{rocolax_filters}
 \alias{kolarivision_filters}
 \alias{fotga_filters}
-\title{Total transmittance for photography filters}
+\alias{tangsinuo_filters}
+\alias{purshee_filters}
+\alias{knightx_filters}
+\alias{kenfaith_filters}
+\alias{nisi_filters}
+\title{Indexing of photography filters}
 \format{
 A vector of character strings.
 
+An object of class \code{character} of length 12.
+
+An object of class \code{character} of length 14.
+
+An object of class \code{character} of length 2.
+
 An object of class \code{character} of length 11.
 
-An object of class \code{character} of length 7.
+An object of class \code{character} of length 2.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 1.
+
+An object of class \code{character} of length 3.
 
 An object of class \code{character} of length 1.
 
 An object of class \code{character} of length 10.
 
-An object of class \code{character} of length 5.
-
 An object of class \code{character} of length 1.
 
 An object of class \code{character} of length 1.
 
 An object of class \code{character} of length 3.
 
-An object of class \code{character} of length 3.
-
-An object of class \code{character} of length 7.
-
 An object of class \code{character} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{character} of length 2.
 
-An object of class \code{character} of length 3.
+An object of class \code{character} of length 20.
+
+An object of class \code{character} of length 2.
+
+An object of class \code{character} of length 4.
 
 An object of class \code{character} of length 1.
 
@@ -84,40 +99,69 @@ rocolax_filters
 kolarivision_filters
 
 fotga_filters
+
+tangsinuo_filters
+
+purshee_filters
+
+knightx_filters
+
+kenfaith_filters
+
+nisi_filters
 }
 \description{
-Total transmittance for filters intended for use on camera lenses from
-various suppliers: Formatt Hitech, Haida, Heliopan, Hoya, Rocolax and Zomei.
-Data are to be used as "reference values only" as values may change in time
-and production batch.
-}
-\details{
-The variables are as follows:
-
-\itemize{
-  \item w.length (nm)
-  \item Tfr (fraction)
-}
+Vectors of names of member objects with spectral data for filters intended to
+be used on camera lenses, grouped by supplier. Suppliers: B+W, Formatt-Hitech
+(Hitech, Firecrest), Fotga, Haida, Heliopan, Hoya, Ken & Faith Concept,
+KinghtX, KolariVision, Purshee, Rocolax, Tangsinuo, Tiffen, UVRoptics, Zeiss,
+and Zomei.
 }
 \note{
-Data measured with an Agilent 8453 spectrophotometer (based on diode array).
+Data measured with an Agilent 8453 spectrophotometer (based on diode
+  array).
 
 Idependent measurement of a single sample, not a specification.
 }
-\section{Supplier's web sites}{
+\section{Warning!}{
+ Data are to be used as \emph{"reference values only"} as
+  actual transmittance may change in time and with production batch or glass
+  melt. In some cases spectra for multiple filters of the same brand and type
+  are included and show such variation. In other words, these spectra are
+  measured in individual filters, other filters of the same type and brand
+  will almost surely differ to some extent in their spectra.
 
-\url{https://www.baader-planetarium.com/en/},
-\url{https://www.formatt-hitech.com/},
-\url{https://www.fotga.com/},
-\url{https://www.haidaphoto.com/en/},
-\url{http://www.heliopan.de/},
-\url{https://hoyafilter.com/},
-\url{https://kenkoglobal.com/},
-\url{https://kolarivision.com/},
-\url{https://schneiderkreuznach.com/en/photo-optics},
-\url{https://tiffen.com/},
-\url{https://www.uvroptics.com/},
-\url{https://www.zomei.com/}.
+  The dynamic range of the data depends on the instrument used for the
+  measurements. Most of the photography filters have been measured with an
+  Agilent 8453 array spectrophotometer. The noise floor is at approximately
+  3.5 to 4.0 absorbance units within the range of wavelengths included in the
+  data. Some small apparent "leaks" maybe only noise. A blank and a dark
+  measurement obtained using this instrument are also included in the data
+  set for comparison.
+
+The variables are as follows:
+
+\itemize{ \item w.length (nm) \item Tfr (fraction) }
+}
+
+\section{Supplier's web sites, if known}{
+
+  \url{https://www.baader-planetarium.com/en/},
+  \url{https://www.formatt-hitech.com/},
+  \url{https://www.fotga.com/},
+  \url{https://www.haidaphoto.com/en/},
+  \url{http://www.heliopan.de/},
+  \url{https://hoyafilter.com/},
+  \url{https://kenkoglobal.com/},
+  \url{https://www.kentfaith.com/},
+  \url{https://knightx-photography.aliexpress.com/store/924165},
+  \url{https://kolarivision.com/},
+  \url{https://purshee.aliexpress.com/store/1996249},
+  \url{https://schneiderkreuznach.com/en/photo-optics/b-w-filters/filtertypes},
+  \url{https://tangsinuo.aliexpress.com/store/4314008},
+  \url{https://tiffen.com/},
+  \url{https://www.uvroptics.com/},
+  \url{https://www.zomei.com/}.
 }
 
 \examples{

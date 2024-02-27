@@ -1,15 +1,20 @@
 
-# photobiologyFilters
+# photobiologyFilters <img src="man/figures/logo.png" align="right" width="120"/>
 
 [![CRAN
 version](https://www.r-pkg.org/badges/version-last-release/photobiologyFilters)](https://cran.r-project.org/package=photobiologyFilters)
 [![cran
-checks](https://cranchecks.info/badges/worst/photobiologyFilters)](https://cran.r-project.org/web/checks/check_results_photobiologyFilters.html)
+checks](https://badges.cranchecks.info/worst/photobiologyFilters.svg)](https://cran.r-project.org/web/checks/check_results_photobiologyFilters.html)
+[![R Universe
+vwersion](https://aphalo.r-universe.dev/badges/photobiologyFilters)](https://aphalo.r-universe.dev/photobiologyFilters)
+[![R build
+status](https://github.com/aphalo/photobiologyfilters/workflows/R-CMD-check/badge.svg)](https://github.com/aphalo/photobiologyfilters/actions)
 
 Package **photobiologyFilters** is a collection of spectral
-transmittance data for more than 300 filters measured in our lab, by
-collaborators or for which data have been made available by the
-suppliers for inclusion in this package. It also contains spectral
+transmittance data for more than 500 transparent and partially
+transparent materials measured in our lab, by collaborators and
+contributors including data have made available by the suppliers for
+inclusion in this package. The package also contains spectral
 reflectance data and spectral refraction index data for some materials
 and spectral reflectance data for some man-made and natural land
 surfaces.
@@ -22,6 +27,9 @@ version 0.5.0 all member names start with the name of the manufacturer
 or supplier. In addition, several of the vectors of names of member
 spectra were renamed to include the word “filters” to avoid possible
 name clashes with other packages and also to improve naming consistency.
+In version 0.5.3 the names of spectra for photography filters were
+revised again as data for several copies of the same filter types are
+now included in some cases.
 
 ## Examples
 
@@ -32,24 +40,53 @@ library(photobiologyFilters)
 How many spectra are included in the current version of
 ‘photobiologyFilters’?
 
+More than 300 spectra for optical glass and plastic sheets and films.
+This collection includes filters used for photography, the whole set of
+Schott glass filters, most of MIDOPT filters, various types of glass,
+acrylic, polycarbonate and other panes, and theatrical “gels” and some
+greenhouse cladding films. Most of these materials do not scatter light
+and all of them are homogeneous.
+
 ``` r
 length(filters.mspct)
-#> [1] 339
+#> [1] 381
 ```
+
+Nearly 200 spectra for different climate screens used in horticulture
+and agriculture. All these materials scatter light and have a
+heterogeneous surface, as they are nets, yarns or composites in which
+part of the surface has different transmittance than the matrix: either
+an opaque yarn with holes or a partly clear matrix with embedded opaque
+or partly opaque elements.
+
+``` r
+length(screens_nets.mspct)
+#> [1] 197
+```
+
+Reflectance spectra for a few metals are included.
 
 ``` r
 length(metals.mspct)
 #> [1] 12
 ```
 
+Reflectance spectra for different surfaces, such as bare ground, asphalt
+and different types of vegetation.
+
 ``` r
 length(materials.mspct)
 #> [1] 14
 ```
 
+The refractive index can be used to derive other optical properties,
+such as reflectance at different angles of incidence. For some materials
+the refractive index varies strongly with wavelength while for other
+materials varies weakly. This is a small set, serving as example.
+
 ``` r
 length(refractive_index.mspct)
-#> [1] 15
+#> [1] 17
 ```
 
 What are the names of available spectra? We use `head()` to limit the
@@ -58,16 +95,17 @@ output.
 ``` r
 # list names of the first 10 filters
 head(names(filters.mspct), 10)
-#>  [1] "Baader_U_filter"            "BPI_Luminance"             
-#>  [3] "BPI_Solatrol"               "BW_007_Clear_MRC_nano"     
-#>  [5] "Courtaulds_CA_115um"        "Courtaulds_CA_115um_age000"
-#>  [7] "Courtaulds_CA_115um_age020" "Courtaulds_CA_115um_age030"
-#>  [9] "Courtaulds_CA_115um_age060" "Courtaulds_CA_115um_age100"
+#>  [1] "Agilent_blank_0mm_0mm"            "Agilent_dark_0mm_0mm"            
+#>  [3] "Baader_U_filter_1.0mm_48mm"       "BPI_Luminance"                   
+#>  [5] "BPI_Solatrol"                     "BW_007_Clear_MRC_nano_1.2mm_46mm"
+#>  [7] "Courtaulds_CA_115um"              "Courtaulds_CA_115um_age000"      
+#>  [9] "Courtaulds_CA_115um_age020"       "Courtaulds_CA_115um_age030"
 ```
 
 To subset based on different criteria we can use predefined character
-vectors of filter names. For example, vector `polyester` lists the names
-of the spectra for filters made of polyester (PET).
+vectors of filter or climate-screen names. For example, vector
+`polyester` lists the names of the spectra for filters made of polyester
+(PET).
 
 ``` r
 polyester_filters
@@ -80,56 +118,56 @@ We can use the vector to extract all these spectra as a collection.
 filters.mspct[polyester_filters]
 #> Object: filter_mspct [2 x 1]
 #> --- Member: Foiltek_Clear_PET_G ---
-#> Object: filter_spct [911 x 2]
-#> Wavelength range 190 to 1100 nm, step 1 nm 
+#> Object: filter_spct [339 x 2]
+#> Wavelength range 190-1100 nm, step 1-4 nm 
 #> Label: Polyethylene terephthalate (PET), 'polyester'; clear sheet; new 
 #> Transmittance of type 'total'
-#> Rfr (/1): 0.097, thickness (mm): 3, attenuation mode: absorption.
+#> Rfr (/1): 0.097, thickness (mm): 3.00, attenuation mode: absorption.
 #> 
-#> # A tibble: 911 x 2
+#> # A tibble: 339 × 2
 #>    w.length      Tfr
 #>       <dbl>    <dbl>
 #>  1      190 0.000105
-#>  2      191 0.000104
-#>  3      192 0.000104
-#>  4      193 0.000103
-#>  5      194 0.000102
-#>  6      195 0.000102
-#>  7      196 0.000102
-#>  8      197 0.000101
-#>  9      198 0.000100
-#> 10      199 0.000100
-#> # ... with 901 more rows
+#>  2      194 0.000102
+#>  3      198 0.000100
+#>  4      201 0.000100
+#>  5      202 0.000100
+#>  6      206 0.000100
+#>  7      209 0.000100
+#>  8      210 0.000100
+#>  9      214 0.000102
+#> 10      215 0.000102
+#> # ℹ 329 more rows
 #> --- Member: McDermit_PET_Autostat_CT5_125um ---
-#> Object: filter_spct [561 x 2]
-#> Wavelength range 240 to 800 nm, step 1 nm 
+#> Object: filter_spct [454 x 2]
+#> Wavelength range 240-800 nm, step 1-4 nm 
 #> Label: Polyester, clear film, 0.000125 m thick, Autostat CT5 from McDermit Autotype; new 
 #> Transmittance of type 'total'
 #> Rfr (/1): 0.074, thickness (mm): 0.125, attenuation mode: absorption.
 #> 
-#> # A tibble: 561 x 2
+#> # A tibble: 454 × 2
 #>    w.length     Tfr
 #>       <int>   <dbl>
 #>  1      240 0.00482
 #>  2      241 0.00464
 #>  3      242 0.00446
-#>  4      243 0.00429
-#>  5      244 0.00414
-#>  6      245 0.004  
-#>  7      246 0.004  
-#>  8      247 0.004  
-#>  9      248 0.004  
-#> 10      249 0.004  
-#> # ... with 551 more rows
+#>  4      244 0.00414
+#>  5      246 0.004  
+#>  6      248 0.004  
+#>  7      252 0.00386
+#>  8      256 0.00329
+#>  9      258 0.003  
+#> 10      259 0.003  
+#> # ℹ 444 more rows
 #> 
 #> --- END ---
 ```
 
-The package includes a character vector with the names of these vectors
-of names that are available.
+The package includes two character vectors with the names of the vectors
+of names that are available for filters and screens.
 
 ``` r
-all_filter_accessors
+all_filter_selectors
 #>  [1] "acetate_filters"            "acrylic_filters"           
 #>  [3] "baader_filters"             "band_pass_filters"         
 #>  [5] "blue_filters"               "blue_green_filters"        
@@ -138,41 +176,54 @@ all_filter_accessors
 #> [11] "etola_filters"              "evonik_filters"            
 #> [13] "fake_unbranded_filters"     "firecrest_filters"         
 #> [15] "foiltek_filters"            "fotga_filters"             
-#> [17] "green_filters"              "haida_filters"             
-#> [19] "heat_filters"               "heliopan_filters"          
-#> [21] "hoya_filters"               "kenko_filters"             
-#> [23] "kolarivision_filters"       "lee_filters"               
-#> [25] "long_pass_filters"          "mcdermit_filters"          
-#> [27] "midopt_filters"             "neutral_filters"           
-#> [29] "old_schott_filters"         "optical_glass_filters"     
-#> [31] "orange_filters"             "photography_filters"       
-#> [33] "plastic_film_filters"       "plastic_sheet_filters"     
-#> [35] "plexiglas_filters"          "polycarbonate_filters"     
-#> [37] "polyester_filters"          "polystyrene_filters"       
-#> [39] "polyvynil_chloride_filters" "red_nir_filters"           
-#> [41] "rocolax_filters"            "rosco_filters"             
-#> [43] "schott_filters"             "short_pass_filters"        
-#> [45] "tiffen_filters"             "uqg_filters"               
-#> [47] "uv_filters"                 "uvir_cut_filters"          
-#> [49] "uvroptics_filters"          "xl_horticulture_filters"   
-#> [51] "yellow_filters"             "zeiss_filters"             
-#> [53] "zomei_filters"
+#> [17] "glass_windows"              "green_filters"             
+#> [19] "haida_filters"              "heat_filters"              
+#> [21] "heliopan_filters"           "hoya_filters"              
+#> [23] "kenfaith_filters"           "kenko_filters"             
+#> [25] "knightx_filters"            "kolarivision_filters"      
+#> [27] "lee_filters"                "lee_gels"                  
+#> [29] "long_pass_filters"          "mcdermit_filters"          
+#> [31] "midopt_filters"             "neutral_filters"           
+#> [33] "nisi_filters"               "old_schott_filters"        
+#> [35] "optical_glass_filters"      "orange_filters"            
+#> [37] "photography_filters"        "plastic_dome_filters"      
+#> [39] "plastic_film_filters"       "plastic_sheet_filters"     
+#> [41] "plexiglas_filters"          "polycarbonate_filters"     
+#> [43] "polyester_filters"          "polystyrene_filters"       
+#> [45] "polyvynil_chloride_filters" "purshee_filters"           
+#> [47] "red_nir_filters"            "rocolax_filters"           
+#> [49] "rosco_filters"              "rosco_gels"                
+#> [51] "schott_filters"             "short_pass_filters"        
+#> [53] "stacked_filters"            "tangsinuo_filters"         
+#> [55] "theatrical_gels"            "tiffen_filters"            
+#> [57] "uqg_filters"                "uv_filters"                
+#> [59] "uvir_cut_filters"           "uvroptics_filters"         
+#> [61] "xl_horticulture_filters"    "yellow_filters"            
+#> [63] "zeiss_filters"              "zomei_filters"
+```
+
+``` r
+all_screen_selectors
+#> [1] "arrigoni_screens"          "criadolopez_screens"      
+#> [3] "howitec_screens"           "huachangyarns_screens"    
+#> [5] "mallastextiles_nets"       "oerlemansplastics_screens"
+#> [7] "svensson_screens"
 ```
 
 Please, see the *User Guide* or help pages for the names of other
 vectors of names for materials, suppliers, and regions of the spectrum.
 
 Summary calculations can be easily done with methods from package
-‘photobiology’. Here we calculate mean transmittance for two regions
-of the spectrum given by wavelengths in nanometres.
+‘photobiology’. Here we calculate mean transmittance for two regions of
+the spectrum given by wavelengths in nanometres.
 
 ``` r
 transmittance(filters.mspct[["Foiltek_Clear_PET_G"]], 
               list(waveband(c(250, 315)), waveband(c(500,600))))
 #> Tfr(wl)_range.250.315 Tfr(wl)_range.500.600 
-#>          0.0001840984          0.8759395389 
+#>          0.0001886533          0.8759401279 
 #> attr(,"Tfr.type")
-#> [1] "unknown"
+#> [1] "total"
 #> attr(,"radiation.unit")
 #> [1] "transmittance average"
 ```
@@ -191,11 +242,20 @@ Installation of the most recent stable version from CRAN:
 install.packages("photobiologyFilters")
 ```
 
-Installation of the current unstable version from Bitbucket:
+Installation of the current unstable version from R-Universe CRAN-like
+repository:
 
 ``` r
-# install.packages("devtools")
-devtools::install_bitbucket("aphalo/photobiologyfilters")
+install.packages('photobiologyFilters', 
+                 repos = c('https://aphalo.r-universe.dev', 'https://cloud.r-project.org'))
+```
+
+Installation of the current unstable version from GitHub (no binaries
+available):
+
+``` r
+# install.packages("remotes")
+remotes::install_github("aphalo/photobiologyfilters")
 ```
 
 ## Documentation
@@ -228,16 +288,18 @@ Division of Plant Biology. ISBN 978-952-10-8363-1 (PDF),
 ## Contributing
 
 Pull requests, bug reports, and feature requests are welcome at
-(<https://bitbucket.org/aphalo/photobiologyfilters>).
+(<https://github.com/aphalo/photobiologyfilters>).
 
 ## Citation
 
 If you use this package to produce scientific or commercial
-publications, please cite according to:
+publications, please cite it according to the recommended citation
+below. For individual spectra please read the corresponding help page
+and if available, also cite the original source of the data. Be aware
+that most data have been re-processed before inclussion in the package.
 
 ``` r
 citation("photobiologyFilters")
-#> 
 #> To cite package 'photobiologyFilters' in publications, please use:
 #> 
 #>   Aphalo, Pedro J. (2015) The r4photobiology suite. UV4Plants Bulletin,
@@ -259,6 +321,6 @@ citation("photobiologyFilters")
 
 ## License
 
-© 2012-2020 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
+© 2012-2024 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>). Released under
 the GPL, version 2 or greater. This software carries no warranty of any
 kind.

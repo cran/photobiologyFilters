@@ -1,16 +1,9 @@
-#' Total transmittance for MidOpt filters
+#' Indexing of MidOpt filters
 #'
-#' Internal transmittance for MidOpt machine-vision optical glass, acrylic and
-#' interference filters. Data extracted from MidOpt's pdf data files with
-#' help of R package 'tabulizer'. MidOpt is a trade
-#' name of Midwest Optical Systems, Palatine, IL 60067 USA
-#'
-#' The variables are as follows:
-#'
-#' \itemize{
-#'   \item w.length (nm)
-#'   \item Tfr (fraction)
-#' }
+#' Vectors of names of member objects containing spectral data for MidOpt
+#' machine-vision optical glass, acrylic and interference filters. Data
+#' extracted from MidOpt's pdf data files with help of R package 'tabulizer'.
+#' MidOpt is a trade name of Midwest Optical Systems, Palatine, IL 60067 USA
 #'
 #' @note Data downloaded from \url{https://midopt.com/filters/} on 2017-12-26 and
 #' 2019-05-10. Republished with permission.
@@ -25,7 +18,11 @@
 #' @keywords datasets
 #' @format A vector of character strings.
 #'
+#' @seealso \code{\link{filters.mspct}}
+#'
 #' @examples
 #' midopt_filters
+#' summary(filters.mspct[midopt_filters])
+#' summary(filters.mspct[midopt_filters[grep("TB", midopt_filters)]])
 #'
 "midopt_filters"
